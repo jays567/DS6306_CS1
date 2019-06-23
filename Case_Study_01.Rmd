@@ -1,0 +1,114 @@
+---
+title: "Case_Study_I_Beer_DistributionBy_We'veGotData"
+author: "Jayson Baker, Jeremy Simpson, and William Hinton"
+date: "6/23/2019"
+output: 
+  html_document: 
+    keep_md: true
+---
+# Introduction 
+This R markdown document will be providing analysis of craft beers and Brewery distributors through out the USA. We feel with our data analysis, will and can predict which market is best to expand into to generate more sales for your company. 
+
+```{r include=FALSE}
+library(tidyverse)
+library(sqldf)
+
+setwd("C:\\SMU_MasterProgram\\SummerMay052019\\DS_6306_DataScience_402\\CaseStudy1")
+getwd()
+```
+## Specifications
+Here we will list the number of Breweries by each state. This will allow you to know who your competitors are and what state has the most Breweries.*
+**This is a list of Breweries in the US, we list the top 6 ABV levels and the bottom 6. 
+ We list all different types of beers.**
+
+```{r echo=TRUE}
+#Read the data files
+b_beers <- read.csv("Beers.csv")
+str(b_beers)
+
+a_breweries <- read.csv("Breweries.csv")
+str(a_breweries)
+
+```
+
+>*Here are counts of Breweries listed by each State.*
+
+```{r}
+a1_breweries <- data.frame(sqldf("SELECT State, COUNT(*) FROM a_breweries GROUP BY State"))  # count of breweries by state
+head(a1_breweries,20)
+```
+>*The files were merged and we listed the top 6 Brewery and the last 6 in the file.*
+```{r echo=TRUE}
+b1_beers <- data.frame(sqldf("SELECT * FROM a_breweries a INNER JOIN b_beers b ON a.Brew_ID = b.Brewery_ID"))  # merge the two files
+str(b1_beers)
+head(b1_beers,6)  # list the first 6 obs in merged file
+tail(b1_beers,6)  # list the last 6 obs in the merged file
+
+```
+>*We identify the number of "NA's" in each columns so that we can cleanup the data and make it more readable.* 
+*You can see we have no columns with NA's.*
+```{r}
+c_na <- colSums(is.na(b1_beers))  # count the number of NAs in each column
+head(c_na)                                 
+
+```
+>*Here are alcohol content summary by state with median content.* 
+```{r}
+d_median <- data.frame(sqldf("SELECT State, MEDIAN(ABV), MEDIAN(IBU) FROM b1_beers GROUP BY State"))
+str(d_median)
+
+
+```
+
+#### Included below are Plots
+>*Alcohol content and international bitterness unit for each state*
+
+```{r fig.width=8, fig.height=10,echo=TRUE}
+# create the graph - Median ABV
+ggplot(d_median, aes(x = reorder(State, MEDIAN.ABV.), y = MEDIAN.ABV., fill = -MEDIAN.ABV.)) + 
+  geom_bar(stat = "identity", position="dodge",  na.rm = TRUE) + 
+  theme(axis.text.x = element_text(angle = 90, hjust = 1), legend.position = "none") + 
+  ggtitle("Median Alcohol Content by Volume (ABV) by State") + theme(plot.title = element_text(hjust = 0.5)) + 
+  labs(x = "State (U.S.)", y = "Alcohol Content by Volume") +
+  coord_flip() # flips the chart
+  
+# create the graph - Median IBU
+ggplot(d_median, aes(x = reorder(State, MEDIAN.IBU.), y = MEDIAN.IBU., fill = -MEDIAN.IBU.)) + 
+  geom_bar(stat = "identity", position="dodge",  na.rm = TRUE) + 
+  theme(axis.text.x = element_text(angle = 90, hjust = 1), legend.position = "none") + 
+  ggtitle("Median International Business Unit (IBU) by State") + theme(plot.title = element_text(hjust = 0.5)) + 
+  labs(x = "State (U.S.)", y = "International Business Unit (IBU)") +
+  coord_flip() # flips the chart
+```
+### Alcohol Content
+This section will list and rank maximum alcoholic content for ABV by state in descending order and the most bitter IBU beer by state in descending order.
+The top two states listed below one for each category (ABV, IBU), (Colorado for max ABV) and (Oregon for bitter IBU). 
+```{r}
+e <- data.frame(sqldf("SELECT State, MAX(ABV) FROM b1_beers GROUP BY State ORDER BY ABV DESC"))  # rank order by state and ABV to check
+e <- data.frame(sqldf("SELECT State, MAX(ABV) FROM b1_beers where ABV = (SELECT MAX(ABV) FROM b1_beers) GROUP BY State"))  # state with the highest ABV
+head(e)
+
+f <- data.frame(sqldf("SELECT State, MAX(IBU) FROM b1_beers GROUP BY State ORDER BY IBU DESC"))  # rank order by state and IBU to check
+f <- data.frame(sqldf("SELECT State, MAX(IBU) FROM b1_beers where IBU = (SELECT MAX(IBU) FROM b1_beers) GROUP BY State"))  # state with the highest IBU
+head(f)
+```
+#### Summary by columns for ABV and IBU
+```{r}
+
+summary(b1_beers$ABV)  # summary stats for ABV
+summary(b1_beers$IBU)  # summary stats for IBU
+```
+#### Included below are Plots
+>**Alcohol content and international bitterness unit for each state**
+>**Plot ABV vs. IBU - there does appear to be a linear relationship between ABV and IBU**
+>****ABV vs IBU***
+```{r}
+ggplot(b1_beers, aes(x=ABV, y=IBU, color = factor(b1_beers$Ounces))) + 
+  geom_point(na.rm = TRUE) +
+  ggtitle("Alcohol Content by Volume (ABV) vs. International Bitterness Unit (IBU)") + theme(plot.title = element_text(hjust = 0.5)) + 
+  labs(x = "Alcohol Content by Volume (ABV)", y = "International Bitterness Unit (IBU)", color = "Ounces")
+```
+
+
+
+#Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
