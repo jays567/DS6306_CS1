@@ -33,7 +33,7 @@ str(a_breweries)
 >*Here are counts of Breweries listed by each State. In total we observed 558 breweries with the largest concentration of breweries located in Colorado. *
 
 ```{r echo=TRUE}
-a1_breweries <- data.frame(sqldf("SELECT State, COUNT(*) FROM a_breweries GROUP BY State"))  # count of breweries by state
+a1_breweries <- data.frame(sqldf("SELECT State, COUNT(*) as BrewCount FROM a_breweries GROUP BY State ORDER BY COUNT(*) DESC"))  # count of breweries by state
 a1_breweries
 ```
 

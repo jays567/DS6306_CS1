@@ -49,63 +49,63 @@ str(a_breweries)
 
 
 ```r
-a1_breweries <- data.frame(sqldf("SELECT State, COUNT(*) FROM a_breweries GROUP BY State"))  # count of breweries by state
+a1_breweries <- data.frame(sqldf("SELECT State, COUNT(*) as BrewCount FROM a_breweries GROUP BY State ORDER BY COUNT(*) DESC"))  # count of breweries by state
 a1_breweries
 ```
 
 ```
-##    State COUNT...
-## 1     AK        7
-## 2     AL        3
-## 3     AR        2
-## 4     AZ       11
-## 5     CA       39
-## 6     CO       47
-## 7     CT        8
-## 8     DC        1
-## 9     DE        2
-## 10    FL       15
-## 11    GA        7
-## 12    HI        4
-## 13    IA        5
-## 14    ID        5
-## 15    IL       18
-## 16    IN       22
-## 17    KS        3
-## 18    KY        4
-## 19    LA        5
-## 20    MA       23
-## 21    MD        7
-## 22    ME        9
-## 23    MI       32
-## 24    MN       12
-## 25    MO        9
-## 26    MS        2
-## 27    MT        9
-## 28    NC       19
-## 29    ND        1
-## 30    NE        5
-## 31    NH        3
-## 32    NJ        3
-## 33    NM        4
-## 34    NV        2
-## 35    NY       16
-## 36    OH       15
-## 37    OK        6
-## 38    OR       29
-## 39    PA       25
-## 40    RI        5
-## 41    SC        4
-## 42    SD        1
-## 43    TN        3
-## 44    TX       28
-## 45    UT        4
-## 46    VA       16
-## 47    VT       10
-## 48    WA       23
-## 49    WI       20
-## 50    WV        1
-## 51    WY        4
+##    State BrewCount
+## 1     CO        47
+## 2     CA        39
+## 3     MI        32
+## 4     OR        29
+## 5     TX        28
+## 6     PA        25
+## 7     MA        23
+## 8     WA        23
+## 9     IN        22
+## 10    WI        20
+## 11    NC        19
+## 12    IL        18
+## 13    NY        16
+## 14    VA        16
+## 15    FL        15
+## 16    OH        15
+## 17    MN        12
+## 18    AZ        11
+## 19    VT        10
+## 20    ME         9
+## 21    MO         9
+## 22    MT         9
+## 23    CT         8
+## 24    AK         7
+## 25    GA         7
+## 26    MD         7
+## 27    OK         6
+## 28    IA         5
+## 29    ID         5
+## 30    LA         5
+## 31    NE         5
+## 32    RI         5
+## 33    HI         4
+## 34    KY         4
+## 35    NM         4
+## 36    SC         4
+## 37    UT         4
+## 38    WY         4
+## 39    AL         3
+## 40    KS         3
+## 41    NH         3
+## 42    NJ         3
+## 43    TN         3
+## 44    AR         2
+## 45    DE         2
+## 46    MS         2
+## 47    NV         2
+## 48    DC         1
+## 49    ND         1
+## 50    SD         1
+## 51    WV         1
 ```
 
 >*We merged the two data files and listed the top 6 records and the last 6 records in the merged file to examine the data post merge.*
@@ -203,7 +203,7 @@ ggplot(d_median, aes(x = reorder(State, MEDIAN.ABV.), y = MEDIAN.ABV., fill = -M
   geom_bar(stat = "identity", position="dodge",  na.rm = TRUE) + 
   theme(axis.text.x = element_text(angle = 90, hjust = 1), legend.position = "none") + 
   ggtitle("Median Alcohol Content by Volume (ABV) by State") + theme(plot.title = element_text(hjust = 0.5)) + 
-  labs(x = "State (U.S.)", y = "Alcohol Content by Volume") +
+  labs(x = "State (U.S.)", y = "Alcohol Content by Volume (ABV)") +
   coord_flip() # flips the chart
 ```
 
