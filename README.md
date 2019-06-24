@@ -23,3 +23,10 @@ This section lists the datasets descriptions:
 7. The last graph is a plot of alcohol content and bitterness verse the internationally per ounces of a bottle of beer.
 
 We hope these analysis has shed some light into your company as to what target area in which states you want to start with building your distributor company.
+
+Data files
+
+We used two data files for this analysis:
+
+1. Beers.csv - which contains a listing of beers, their associated ABV and IBU ratings, style, ounces, and brewery identifiers where these beers are served.
+2. Breweries.csv - which contains a listing of the brewery name, city, and state, and brewery ID which allows us to join these two files together.
