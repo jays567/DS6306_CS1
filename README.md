@@ -28,5 +28,6 @@ Data files
 
 We used two data files for this analysis:
 
-1. Beers.csv - which contains a listing of beers, their associated ABV and IBU ratings, style, ounces, and brewery identifiers where these beers are served.
+1. Beers.csv - which contains the name of the beer, the beer ID, the associated ABV and IBU ratings, style, ounces, and brewery identifiers where these beers are served.
+
 2. Breweries.csv - which contains a listing of the brewery name, city, and state, and brewery ID which allows us to join these two files together.
