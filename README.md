@@ -34,18 +34,18 @@ We used two data files for this analysis:
 
 Within the R Code
 
-b_beers - contains the Beers.csv data
+1. b_beers - contains the Beers.csv data
 
-a_breweries - contains the Breweries.csv data
+2. a_breweries - contains the Breweries.csv data
 
-a1_breweries  - contains the count of breweries by state
+3. a1_breweries  - contains the count of breweries by state
 
-b1_beers - contains the merged data file between the beers and breweries data set
+4. b1_beers - contains the merged data file between the beers and breweries data set
 
-c_na - contains the count of NA values from the merged beers and breweries data set
+5. c_na - contains the count of NA values from the merged beers and breweries data set
 
-d_median - contains the median ABV and IBU values by state
+6. d_median - contains the median ABV and IBU values by state
 
-e - contains the max ABV for each state
+7. e - contains the max ABV for each state
 
-f - contains the max IBU for each state
+8. f - contains the max IBU for each state
