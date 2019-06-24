@@ -7,7 +7,7 @@ output:
     keep_md: true
 ---
 # Introduction 
-This report provides an analysis of craft beers and Brewery distributors of those beers through out the USA. As your team has expressed interest in understanding where competitors are currently located, how saturated the market in each state is and also assistance in determining the composition of your next beer product (in terms of alcohol by volume (ABV) and bitterness (IBU)), we've prepared the following analysis which should solve for those needs. Through this analysis and additional follow-on discussions with your team and other relevant business partners, we feel that you will be positioned to make the best decision for your organization.
+This report provides an analysis of craft beers and Brewery distributors of craft beers throughout the US.  Your team has expressed interest in understanding the location of industry competitors, market saturation per state, along with assistance in determining the composition of your next beer product, according to alcohol content (ABV) and bitterness (IBU). The prepared analysis will accommodate you in addressing your needs. Based on this analysis along with follow-up discussions with your team and other relevant business partners, we feel that you will be positioned to make a strong business decision for your organization.
 
 
 
@@ -248,8 +248,9 @@ head(f)
 ## 1    OR      138
 ```
 
-#### Summary by columns for ABV and IBU
+### Summary by columns for ABV and IBU
 >*Here we provide summary statistics for the ABV and IBU values to help provide a perspective on the specific ranges and statistics.*
+
 
 ```r
 summary(b1_beers$ABV)  # summary stats for ABV
@@ -269,7 +270,7 @@ summary(b1_beers$IBU)  # summary stats for IBU
 ##    4.00   21.00   35.00   42.71   64.00  138.00    1005
 ```
 
-#### Included below are Plots
+### Included below are Plots
 >*Here we plot the ABV and IBU for each state in an attempt to discern if there is a relationship between ABV and IBU.*
 >*Note: there does appear to be a linear relationship between ABV and IBU; we've added in ounces as a dimension for each point as well.*
 >*With regards to this analysis, when determine where to position your product, please keep in mind that the higher the ABV, the higher the IBU which could also factor into location preferences as Colorado has the highest ABV but Oregon has the highest IBU.*
@@ -284,7 +285,16 @@ ggplot(b1_beers, aes(x=ABV, y=IBU, color = factor(b1_beers$Ounces))) +
 
 ![](Case_Study_01_files/figure-html/unnamed-chunk-10-1.png)<!-- -->
 
-# Summary
-Based on the problem statement your team initially asked us to examine: 1) where competitors are currently located and how saturated the market in each state is and 2) also assistance in determining the composition of your next beer product (in terms of alcohol by volume (ABV) and bitterness (IBU)) we recommend the following:
-1) Avoid constructing your new brewery in Colorado. Our analysis finds that the state is saturated with breweries already and comeptition will be stiff. We suggest exploring states like Texas or Pensylvania as these states have a mid-level concentration of breweries and appear to have some relative room for additional competion.
-2) When developing your next beer product, please keep in mind that a higher ABV will influence the bitterness of the beer. If bitterness is a key trait for this new product, then ensure the ABV concentration is high. However, if bitterness is something you're wishing to control, we suggest limiting the ABV to reasonable amounts. We also suggest factoring in location considerations with regards to the bitterness decision; our data shows that Oregon is the state with the highest concentration of bitter beers, yet the number of breweries is well below the number present in Colorado. This could signal a high demand for this type of beer product in that state which at a minimum warrants further investigation.
+### Summary
+
+Based on the problem statement your team initially asked us to examine:
+
++ Competitor location and market saturation in each state.
++ Assistance in determining the composition of your next beer product (in terms of alcohol by volume (ABV) and bitterness (IBU))* 
+
+The following are our recommendations based the requested analysis:
+
++ Avoid constructing your new brewery in Colorado.
+Our analysis indicates that the state is heavily saturated with breweries which would mean stiff competition. Our suggestion, is that you give strong consideration to exploring the markets in the states of Texas and Pennsylvania. These states have a mid-level concentration of breweries and appear to have some relative room for additional market growth and competition.
++ When developing your next beer product, please consider that our analysis strongly  implies that a higher ABV will affect the bitterness of the beer. If bitterness is a key trait for your prospective product, it is probable that this can be achieved with  a high ABV concentration. If you prefer that your product is less bitter, we suggest limiting the ABV to reasonable amounts.
++ Additionally we suggest considering locations of interest when determining the bitterness level of your proposed product. Our data shows that Oregon is the state with the highest concentration of bitter beers, yet the number of breweries is well below the number present in Colorado. This is either means there is a high demand for bitter beer, or is a signal of a weak market for great tasting beer in Oregon, that has the potential to be further explored.  At minimum we suggest further exploration.
