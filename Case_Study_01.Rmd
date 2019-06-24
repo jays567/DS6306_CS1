@@ -10,11 +10,15 @@ output:
 This report provides an analysis of craft beers and Brewery distributors of craft beers throughout the US.  Your team has expressed interest in understanding the location of industry competitors, market saturation per state, along with assistance in determining the composition of your next beer product, according to alcohol content (ABV) and bitterness (IBU). The prepared analysis will accommodate you in addressing your needs. Based on this analysis along with follow-up discussions with your team and other relevant business partners, we feel that you will be positioned to make a strong business decision for your organization.
 
 ```{r include=FALSE}
+
+# GIT REPO LINK: https://github.com/jays567/DS6306_CS1
+
 library(tidyverse)
 library(sqldf)
 
 setwd("F:/SMU/DS6306/Case_Study/DS6306_CS1")
 getwd()
+
 ```
 
 ## Specifications
