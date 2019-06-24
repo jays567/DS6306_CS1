@@ -31,3 +31,21 @@ We used two data files for this analysis:
 1. Beers.csv - which contains the name of the beer, the beer ID, the associated ABV and IBU ratings, style, ounces, and brewery identifiers where these beers are served.
 
 2. Breweries.csv - which contains a listing of the brewery name, city, and state, and brewery ID which allows us to join these two files together.
+
+Within the R Code
+
+1. b_beers - contains the Beers.csv data
+
+2. a_breweries - contains the Breweries.csv data
+
+3. a1_breweries  - contains the count of breweries by state
+
+4. b1_beers - contains the merged data file between the beers and breweries data set
+
+5. c_na - contains the count of NA values from the merged beers and breweries data set
+
+6. d_median - contains the median ABV and IBU values by state
+
+7. e - contains the max ABV for each state
+
+8. f - contains the max IBU for each state
