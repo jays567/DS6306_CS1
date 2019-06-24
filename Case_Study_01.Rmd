@@ -13,7 +13,7 @@ This R markdown document will be providing analysis of craft beers and Brewery d
 library(tidyverse)
 library(sqldf)
 
-setwd("C:\\SMU_MasterProgram\\SummerMay052019\\DS_6306_DataScience_402\\CaseStudy1")
+setwd("F:/SMU/DS6306/Case_Study")
 getwd()
 ```
 ## Specifications
