@@ -3,7 +3,9 @@ We’ve Got Data – Data Analytics Corporation providing useful data analytics 
 Team Members
 
 William Hinton
+
 Jayson Barker
+
 Jeremy Simpson
 
 Introduction
