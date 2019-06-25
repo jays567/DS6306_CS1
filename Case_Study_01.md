@@ -214,8 +214,8 @@ ggplot(d_median, aes(x = reorder(State, MEDIAN.ABV.), y = MEDIAN.ABV., fill = -M
 ggplot(d_median, aes(x = reorder(State, MEDIAN.IBU.), y = MEDIAN.IBU., fill = -MEDIAN.IBU.)) + 
   geom_bar(stat = "identity", position="dodge",  na.rm = TRUE) + 
   theme(axis.text.x = element_text(angle = 90, hjust = 1), legend.position = "none") + 
-  ggtitle("Median International Business Unit (IBU) by State") + theme(plot.title = element_text(hjust = 0.5)) + 
-  labs(x = "State (U.S.)", y = "International Business Unit (IBU)") +
+  ggtitle("Median International Bitterness Unit (IBU) by State") + theme(plot.title = element_text(hjust = 0.5)) + 
+  labs(x = "State (U.S.)", y = "International Bitterness Unit (IBU)") +
   coord_flip() # flips the chart
 ```
 
