@@ -1,5 +1,11 @@
 We’ve Got Data – Data Analytics Corporation providing useful data analytics to clients so that they can make business decisions in distributions of breweries.
 
+Team Members
+
+William Hinton
+Jayson Barker
+Jeremy Simpson
+
 Introduction
 
 We gather data from two data sources (beers.csv and breweries.csv). Our data analysis was done to give our client the abilities to make decision about what/which target area in the US to move into. Our plots and graphs hopefully will help shed some light on this information.
